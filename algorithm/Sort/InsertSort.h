@@ -3,19 +3,22 @@
 #include <algorithm>
 #include <vector>
 
+using namespace std;
+
 namespace SortAlgorithm
 {
+	const int npos = -1;
+
 	template <typename T>
-	static int _findFirstGreater(const std::vector<T>& v, int last, const T& key)
+	int _findFirstGreater(const vector<T>& v, int last, const T& key)
 	{
 		if (last >= (int)v.size())
-			return -1;
+			return npos;
 
 		if (v[last] <= key)
-			return -1;
+			return npos;
 
-		int left = 0;
-		int right = last;
+		int left = 0, right = last;
 
 		while (left <= right) {
 			int mid = (left + right) / 2;
@@ -31,15 +34,15 @@ namespace SortAlgorithm
 
 
 	template <typename T>
-	static void InsertSort(std::vector<T>& v)
+	void InsertSort(std::vector<T>& v)
 	{
 		if (v.size() <= 1)
 			return;
-		for (size_t i = 1; i < v.size(); ++i)
+		for (int i = 1; i < (int)v.size(); ++i)
 		{
 			int j = i - 1;
 			int firstGreater = _findFirstGreater(v, j, v[i]);
-			if (firstGreater != -1)
+			if (firstGreater != npos)
 			{
 				T key = std::move(v[i]);
 				while (firstGreater <= j)
@@ -54,9 +57,5 @@ namespace SortAlgorithm
 	}
 
 
-
-
-
-	
 }
 

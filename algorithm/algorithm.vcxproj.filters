@@ -36,6 +36,9 @@
     <ClInclude Include="Util\ContentCreator.h">
       <Filter>头文件\Util</Filter>
     </ClInclude>
+    <ClInclude Include="Sort\QuickSort.h">
+      <Filter>头文件\Sort</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
